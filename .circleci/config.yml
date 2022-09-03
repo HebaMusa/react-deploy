@@ -13,14 +13,21 @@ jobs:
     steps:
       - run:
           command:
-            echo "hello Heba"
+            echo "Hello dear,"
   print-world:
     docker:
       - image: circleci/node:13.8.0
     steps:
       - run:
           command:
-            echo "Heba word is the word"
+            echo "World is grate if we obay our God."
+  print-env-var:
+    docker:
+      - image: circleci/node:13.8.0
+    steps:
+      - run:
+          command:
+            echo <<myvar>>
 
 # Invoke jobs via workflows
 # See: https://circleci.com/docs/2.0/configuration-reference/#workflows
@@ -32,6 +39,7 @@ workflows:
       - print-world:
           requires:
             - print-hello
+      - print-env-var
 
       - node/test:
           # This is the node version to use for the `cimg/node` tag
