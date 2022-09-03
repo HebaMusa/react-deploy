@@ -23,11 +23,13 @@ jobs:
             echo "World is grate if we obay our God."
   print-env-var:
     docker:
-      - image: circleci/node:13.8.0
+      - image: cimg/base:2020.01
     steps:
+      - checkout  
       - run:
-          command:
-            echo <<myvar>>
+          name: "echo an env var that is part of our project"
+          command: |
+            echo $myvar
 
 # Invoke jobs via workflows
 # See: https://circleci.com/docs/2.0/configuration-reference/#workflows
