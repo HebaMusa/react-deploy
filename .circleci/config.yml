@@ -26,7 +26,7 @@ jobs:
     steps:
       - print_pipeline_id
       - print_parameter: 
-            id : << pipline.id >>
+            id : << pipeline.id >>
 
 
   print-hello:
