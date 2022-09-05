@@ -6,14 +6,27 @@ version: 2.1
 orbs:
   node: circleci/node@4.7
 
+commands:
+  print_pipeline_id:
+    steps: 
+      - run: echo ${CIRCLE_WORKFLOW_ID}
+
 jobs:
+  new-job-uses-command:
+    docker:
+      - image: circleci/node:13.8.0
+    steps:
+      - print_pipeline_id
+
+
   print-hello:
     docker:
       - image: circleci/node:13.8.0
     steps:
       - run:
           command:
-            echo "Hello dear,"
+            echo "Hello dear !"
+
   print-world:
     docker:
       - image: circleci/node:13.8.0
@@ -21,6 +34,7 @@ jobs:
       - run:
           command:
             echo "World is grate if we obay our God."
+
   print-env-var:
     docker:
       - image: cimg/base:2020.01
@@ -56,6 +70,7 @@ workflows:
   sample: # This is the name of the workflow, feel free to change it to better match your workflow.
     # Inside the workflow, you define the jobs you want to run.
     jobs:
+      - new-job-uses-command
       - print-hello
       - print-world:
           requires:
