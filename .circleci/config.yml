@@ -28,12 +28,15 @@ jobs:
       - print_parameter: 
             id : << pipeline.id >>
       
-      - run: exit 1 #error
+      - run: exit 1 #error 
+                    #we can also use 
+                    # return 1 or any thing else 0 as 0 means success --Non-Zero Exit Codes
+
 
       - run:
           name: on error
           command: echo "Hello Error!"
-          when: on_fail
+          when: on_fail # to do when error happen
 
 
   print-hello:
