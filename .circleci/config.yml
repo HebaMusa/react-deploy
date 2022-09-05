@@ -26,9 +26,9 @@ jobs:
     steps:
       - print_pipeline_id
       - print_parameter: 
-            id : << pipelin.id >>
+            id : << pipeline.id >>
       
-      #- run: exit 1 #error code
+      - run: exit 1 #error
 
       - run:
           name: on error
