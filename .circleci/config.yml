@@ -26,7 +26,11 @@ jobs:
     steps:
       - print_pipeline_id
       - print_parameter: 
-            id : << pipeline.id >>
+            id : << pipline.id >>
+      - print_parameter:
+            id : "Failssssss"
+            when: on_fail 
+
 
 
   print-hello:
