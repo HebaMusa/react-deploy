@@ -26,7 +26,10 @@ jobs:
     steps:
       - print_pipeline_id
       - print_parameter: 
-            id : << pipline.id >>
+            id : << pipeline.id >>
+      
+      - run: exit 1 #error code
+
       - run:
           name: on error
           command: echo "Hello Error!"
