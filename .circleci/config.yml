@@ -27,10 +27,10 @@ jobs:
       - print_pipeline_id
       - print_parameter: 
             id : << pipline.id >>
-      - print_parameter:
-            id : "Failssssss"
-            when: on_fail 
-
+      - run:
+          name: on error
+          command: echo "Hello Error!"
+          when: on_fail
 
 
   print-hello:
