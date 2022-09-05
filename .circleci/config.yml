@@ -11,12 +11,22 @@ commands:
     steps: 
       - run: echo ${CIRCLE_WORKFLOW_ID}
 
+  print_parameter:
+    parameters:
+      id: 
+        type: string
+    steps: 
+      - run: echo << parameters.id >>
+
 jobs:
+
   new-job-uses-command:
     docker:
       - image: circleci/node:13.8.0
     steps:
       - print_pipeline_id
+      - print_parameter:
+          id : << pipline.id >>
 
 
   print-hello:
