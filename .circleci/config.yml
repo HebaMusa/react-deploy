@@ -25,8 +25,8 @@ jobs:
       - image: circleci/node:13.8.0
     steps:
       - print_pipeline_id
-      - print_parameter:
-          id : << pipline.id >>
+      - print_parameter: 
+            id : << pipline.id >>
 
 
   print-hello:
